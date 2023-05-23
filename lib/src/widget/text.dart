@@ -152,7 +152,7 @@ class NeumorphicText extends StatelessWidget {
   final Curve curve;
   final Duration duration;
 
-  NeumorphicText(
+  const NeumorphicText(
     this.text, {
     Key? key,
     this.duration = Neumorphic.DEFAULT_DURATION,
@@ -170,12 +170,12 @@ class NeumorphicText extends StatelessWidget {
         .applyDisableDepth();
 
     return _NeumorphicText(
-      textStyle: (this.textStyle ?? NeumorphicTextStyle()).textStyle,
-      textAlign: this.textAlign,
-      text: this.text,
-      duration: this.duration,
+      textStyle: (textStyle ?? NeumorphicTextStyle()).textStyle,
+      textAlign: textAlign,
+      text: text,
+      duration: duration,
       style: style,
-      curve: this.curve,
+      curve: curve,
     );
   }
 }
@@ -190,7 +190,7 @@ class _NeumorphicText extends material.StatefulWidget {
 
   final TextAlign textAlign;
 
-  _NeumorphicText({
+  const _NeumorphicText({
     Key? key,
     required this.duration,
     required this.curve,
@@ -208,11 +208,11 @@ class __NeumorphicTextState extends material.State<_NeumorphicText> {
   @override
   Widget build(BuildContext context) {
     final TextPainter _textPainter = TextPainter(
-        textDirection: TextDirection.ltr, textAlign: this.widget.textAlign);
-    final textStyle = this.widget.textStyle;
+        textDirection: TextDirection.ltr, textAlign: widget.textAlign);
+    final textStyle = widget.textStyle;
     _textPainter.text = TextSpan(
-      text: this.widget.text,
-      style: this.widget.textStyle,
+      text: widget.text,
+      style: widget.textStyle,
     );
 
     return LayoutBuilder(builder: (context, constraints) {
@@ -223,15 +223,15 @@ class __NeumorphicTextState extends material.State<_NeumorphicText> {
       return DefaultTextStyle(
         style: textStyle,
         child: AnimatedContainer(
-          duration: this.widget.duration,
-          curve: this.widget.curve,
+          duration: widget.duration,
+          curve: widget.curve,
           foregroundDecoration: NeumorphicTextDecoration(
             isForeground: true,
             textStyle: textStyle,
             textAlign: widget.textAlign,
             renderingByPath: true,
-            style: this.widget.style,
-            text: this.widget.text,
+            style: widget.style,
+            text: widget.text,
           ),
           child: SizedBox(
             width: width,

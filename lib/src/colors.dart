@@ -35,7 +35,7 @@ class NeumorphicColors {
 
   static const Color defaultTextColor = Color(0xFF000000);
 
-  NeumorphicColors._();
+  const NeumorphicColors._();
 
   static Color decorationWhiteColor(Color color, {required double intensity}) {
     // intensity act on opacity;
