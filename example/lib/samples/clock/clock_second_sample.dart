@@ -209,15 +209,15 @@ class AlarmCell extends StatelessWidget {
 class _Divider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const FractionallySizedBox(
+    return FractionallySizedBox(
       widthFactor: 1,
       child: Neumorphic(
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        style: NeumorphicStyle(
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        style: const NeumorphicStyle(
           depth: -4,
           boxShape: NeumorphicBoxShape.stadium(),
         ),
-        child: SizedBox(
+        child: const SizedBox(
           height: 6,
         ),
       ),

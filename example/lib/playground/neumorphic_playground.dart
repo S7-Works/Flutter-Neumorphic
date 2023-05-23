@@ -5,7 +5,7 @@ class NeumorphicPlayground extends StatefulWidget {
   const NeumorphicPlayground({super.key});
 
   @override
-  _NeumorphicPlaygroundState createState() => _NeumorphicPlaygroundState();
+  State<NeumorphicPlayground> createState() => _NeumorphicPlaygroundState();
 }
 
 class _NeumorphicPlaygroundState extends State<NeumorphicPlayground> {
@@ -314,10 +314,7 @@ class __PageState extends State<_Page> {
         width: width,
         child: haveNeumorphicChild
             ? neumorphicChild()
-            : Container(
-                //color: Colors.blue,
-                child: const Center(child: Text("")),
-              ),
+            : const Center(child: Text("")),
       ),
     );
   }
@@ -644,8 +641,7 @@ class __PageState extends State<_Page> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                    borderRadius: BorderRadius.circular(12)),
                 backgroundColor: boxShape.isRoundRect
                     ? buttonActiveColor
                     : buttonInnactiveColor,

@@ -1,7 +1,6 @@
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/lib/back_button.dart';
+import 'back_button.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -9,7 +8,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
 
   static const double kToolbarHeight = 110.0;
 
-  const TopBar({super.key, this.title = "", this.actions});
+  const TopBar({super.key, this.title = "",  this.actions});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
               alignment: Alignment.centerRight,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: actions ?? [],
+                children: actions!,
               )),
         ],
       ),

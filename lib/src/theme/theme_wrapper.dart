@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_neumorphic/src/theme/theme.dart';
+import 'theme.dart';
 
 export 'theme.dart';
 
@@ -52,10 +52,10 @@ class ThemeWrapper {
     NeumorphicThemeData? darkTheme,
     ThemeMode? currentTheme,
   }) {
-    return ThemeWrapper(
+    return new ThemeWrapper(
       theme: theme ?? this.theme,
       darkTheme: darkTheme ?? this.darkTheme,
-      themeMode: currentTheme ?? themeMode,
+      themeMode: currentTheme ?? this.themeMode,
     );
   }
 }

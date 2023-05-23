@@ -1,6 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/lib/color_selector.dart';
+import 'color_selector.dart';
 
 class ThemeColorSelector extends StatefulWidget {
   final BuildContext customContext;
@@ -8,7 +8,7 @@ class ThemeColorSelector extends StatefulWidget {
   const ThemeColorSelector({super.key, required this.customContext});
 
   @override
-  _ThemeColorSelectorState createState() => _ThemeColorSelectorState();
+  State<ThemeColorSelector> createState() => _ThemeColorSelectorState();
 }
 
 class _ThemeColorSelectorState extends State<ThemeColorSelector> {

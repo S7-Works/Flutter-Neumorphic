@@ -1,7 +1,7 @@
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/samples/clock/clock_second_sample.dart';
+import 'clock_second_sample.dart';
 
 class ClockSample extends StatelessWidget {
   const ClockSample({super.key});
@@ -157,12 +157,12 @@ class NeumorphicClock extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 //the click center
-                const Neumorphic(
-                  style: NeumorphicStyle(
+                Neumorphic(
+                  style: const NeumorphicStyle(
                     depth: -1,
                     boxShape: NeumorphicBoxShape.circle(),
                   ),
-                  margin: EdgeInsets.all(65),
+                  margin: const EdgeInsets.all(65),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -232,7 +232,7 @@ class NeumorphicClock extends StatelessWidget {
   }
 
   Widget _buildLine(
-      {required BuildContext context,
+      {BuildContext? context,
       required double angle,
       required double width,
       double height = 6,
@@ -258,12 +258,12 @@ class NeumorphicClock extends StatelessWidget {
   }
 
   Widget _createDot(BuildContext context) {
-    return const Neumorphic(
-      style: NeumorphicStyle(
+    return Neumorphic(
+      style: const NeumorphicStyle(
         depth: -10,
         boxShape: NeumorphicBoxShape.circle(),
       ),
-      child: SizedBox(
+      child: const SizedBox(
         height: 10,
         width: 10,
       ),

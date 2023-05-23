@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import '../../flutter_neumorphic.dart';
 
 export '../colors.dart';
 export '../light_source.dart';
@@ -52,7 +52,7 @@ class NeumorphicThemeData {
   final Color borderColor;
   final double borderWidth;
 
-  final Color defaultTextColor; //TODO maybe use TextStyle here
+  final Color defaultTextColor; 
   final double _depth;
   final double _intensity;
   final LightSource lightSource;
@@ -96,9 +96,9 @@ class NeumorphicThemeData {
     this.borderColor = NeumorphicColors.defaultBorder,
     this.borderWidth = _defaultBorderSize,
     this.disableDepth = false,
-  })  : _depth = depth,
-        _boxShape = boxShape,
-        _intensity = intensity;
+  })  : this._depth = depth,
+        this._boxShape = boxShape,
+        this._intensity = intensity;
 
   const NeumorphicThemeData.dark({
     this.baseColor = NeumorphicColors.darkBackground,
@@ -121,9 +121,9 @@ class NeumorphicThemeData {
     this.borderColor = NeumorphicColors.darkDefaultBorder,
     this.borderWidth = _defaultBorderSize,
     this.disableDepth = false,
-  })  : _depth = depth,
-        _boxShape = boxShape,
-        _intensity = intensity;
+  })  : this._depth = depth,
+        this._boxShape = boxShape,
+        this._intensity = intensity;
 
   @override
   String toString() {
@@ -204,7 +204,7 @@ class NeumorphicThemeData {
     double? borderSize,
     LightSource? lightSource,
   }) {
-    return NeumorphicThemeData(
+    return new NeumorphicThemeData(
       baseColor: baseColor ?? this.baseColor,
       textTheme: textTheme ?? this.textTheme,
       iconTheme: iconTheme ?? this.iconTheme,
@@ -222,10 +222,10 @@ class NeumorphicThemeData {
           shadowDarkColorEmboss ?? this.shadowDarkColorEmboss,
       shadowLightColorEmboss:
           shadowLightColorEmboss ?? this.shadowLightColorEmboss,
-      depth: depth ?? _depth,
-      borderWidth: borderSize ?? borderWidth,
+      depth: depth ?? this._depth,
+      borderWidth: borderSize ?? this.borderWidth,
       borderColor: borderColor ?? this.borderColor,
-      intensity: intensity ?? _intensity,
+      intensity: intensity ?? this._intensity,
       lightSource: lightSource ?? this.lightSource,
     );
   }
@@ -235,7 +235,7 @@ class NeumorphicThemeData {
   NeumorphicThemeData copyFrom({
     required NeumorphicThemeData other,
   }) {
-    return NeumorphicThemeData(
+    return new NeumorphicThemeData(
       baseColor: other.baseColor,
       accentColor: other.accentColor,
       variantColor: other.variantColor,
@@ -280,9 +280,9 @@ class NeumorphicBorder {
   });
 
   const NeumorphicBorder.none()
-      : isEnabled = true,
-        color = const Color(0x00000000),
-        width = 0;
+      : this.isEnabled = true,
+        this.color = const Color(0x00000000),
+        this.width = 0;
 
   @override
   bool operator ==(Object other) =>
@@ -317,7 +317,7 @@ class NeumorphicBorder {
 
   NeumorphicBorder copyWithThemeIfNull({Color? color, double? width}) {
     return NeumorphicBorder(
-      isEnabled: isEnabled,
+      isEnabled: this.isEnabled,
       color: this.color ?? color,
       width: this.width ?? width,
     );
@@ -367,10 +367,10 @@ class NeumorphicStyle {
     double surfaceIntensity = 0.25,
     this.disableDepth,
     this.oppositeShadowLightSource = false,
-  })  : _depth = depth,
-        theme = null,
-        _intensity = intensity,
-        _surfaceIntensity = surfaceIntensity;
+  })  : this._depth = depth,
+        this.theme = null,
+        this._intensity = intensity,
+        this._surfaceIntensity = surfaceIntensity;
 
   // with theme constructor is only available privately, please use copyWithThemeIfNull
   const NeumorphicStyle._withTheme({
@@ -389,9 +389,9 @@ class NeumorphicStyle {
     double? depth,
     double? intensity,
     double surfaceIntensity = 0.25,
-  })  : _depth = depth,
-        _intensity = intensity,
-        _surfaceIntensity = surfaceIntensity;
+  })  : this._depth = depth,
+        this._intensity = intensity,
+        this._surfaceIntensity = surfaceIntensity;
 
   double? get depth =>
       _depth?.clamp(Neumorphic.MIN_DEPTH, Neumorphic.MAX_DEPTH);
@@ -405,23 +405,23 @@ class NeumorphicStyle {
   NeumorphicStyle copyWithThemeIfNull(NeumorphicThemeData theme) {
     return NeumorphicStyle._withTheme(
         theme: theme,
-        color: color ?? theme.baseColor,
-        boxShape: boxShape ?? theme.boxShape,
-        shape: shape,
-        border: border.copyWithThemeIfNull(
+        color: this.color ?? theme.baseColor,
+        boxShape: this.boxShape ?? theme.boxShape,
+        shape: this.shape,
+        border: this.border.copyWithThemeIfNull(
             color: theme.borderColor, width: theme.borderWidth),
-        shadowDarkColor: shadowDarkColor ?? theme.shadowDarkColor,
-        shadowLightColor: shadowLightColor ?? theme.shadowLightColor,
+        shadowDarkColor: this.shadowDarkColor ?? theme.shadowDarkColor,
+        shadowLightColor: this.shadowLightColor ?? theme.shadowLightColor,
         shadowDarkColorEmboss:
-            shadowDarkColorEmboss ?? theme.shadowDarkColorEmboss,
+            this.shadowDarkColorEmboss ?? theme.shadowDarkColorEmboss,
         shadowLightColorEmboss:
-            shadowLightColorEmboss ?? theme.shadowLightColorEmboss,
-        depth: depth ?? theme.depth,
-        intensity: intensity ?? theme.intensity,
-        disableDepth: disableDepth ?? theme.disableDepth,
-        surfaceIntensity: surfaceIntensity,
-        oppositeShadowLightSource: oppositeShadowLightSource,
-        lightSource: lightSource);
+            this.shadowLightColorEmboss ?? theme.shadowLightColorEmboss,
+        depth: this.depth ?? theme.depth,
+        intensity: this.intensity ?? theme.intensity,
+        disableDepth: this.disableDepth ?? theme.disableDepth,
+        surfaceIntensity: this.surfaceIntensity,
+        oppositeShadowLightSource: this.oppositeShadowLightSource,
+        lightSource: this.lightSource);
   }
 
   @override
@@ -491,7 +491,7 @@ class NeumorphicStyle {
       shadowLightColorEmboss:
           shadowLightColorEmboss ?? this.shadowLightColorEmboss,
       depth: depth ?? this.depth,
-      theme: theme,
+      theme: this.theme,
       intensity: intensity ?? this.intensity,
       surfaceIntensity: surfaceIntensity ?? this.surfaceIntensity,
       disableDepth: disableDepth ?? this.disableDepth,
@@ -509,7 +509,7 @@ class NeumorphicStyle {
 
   NeumorphicStyle applyDisableDepth() {
     if (disableDepth == true) {
-      return copyWith(depth: 0);
+      return this.copyWith(depth: 0);
     } else {
       return this;
     }

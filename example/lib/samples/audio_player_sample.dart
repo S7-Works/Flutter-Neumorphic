@@ -4,7 +4,7 @@ class AudioPlayerSample extends StatefulWidget {
   const AudioPlayerSample({super.key});
 
   @override
-  _AudioPlayerSampleState createState() => _AudioPlayerSampleState();
+  State<AudioPlayerSample> createState() => _AudioPlayerSampleState();
 }
 
 class _AudioPlayerSampleState extends State<AudioPlayerSample> {

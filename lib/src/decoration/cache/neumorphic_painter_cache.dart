@@ -1,7 +1,6 @@
 
-
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_neumorphic/src/decoration/cache/abstract_neumorphic_painter_cache.dart';
+import '../../../flutter_neumorphic.dart';
+import 'abstract_neumorphic_painter_cache.dart';
 
 class NeumorphicPainterCache extends AbstractNeumorphicEmbossPainterCache {
   @override

@@ -1,6 +1,7 @@
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/widgets.dart';
 
+import 'container.dart';
 
 /// A style to customize the [NeumorphicProgress]
 ///
@@ -98,7 +99,7 @@ class NeumorphicProgress extends StatefulWidget {
       this.duration = const Duration(milliseconds: 300),
       this.style = const ProgressStyle(),
       this.curve = Curves.easeOutCubic})
-      : _percent = percent,
+      : this._percent = percent,
         super(key: key);
 
   @override
@@ -348,9 +349,9 @@ class _GradientProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: borderRadius,
+        borderRadius: this.borderRadius,
         gradient: LinearGradient(
-            begin: begin, end: end, colors: colors),
+            begin: this.begin, end: this.end, colors: this.colors),
       ),
     );
   }

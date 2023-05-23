@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/widgets.dart';
 
-import 'package:flutter_neumorphic/src/neumorphic_box_shape.dart';
-import 'package:flutter_neumorphic/src/decoration/neumorphic_decorations.dart';
-import 'package:flutter_neumorphic/src/theme/neumorphic_theme.dart';
-import 'package:flutter_neumorphic/src/widget/clipper/neumorphic_box_shape_clipper.dart';
+import '../neumorphic_box_shape.dart';
+import '../decoration/neumorphic_decorations.dart';
+import '../theme/neumorphic_theme.dart';
+import 'clipper/neumorphic_box_shape_clipper.dart';
 
 export '../neumorphic_box_shape.dart';
 export '../decoration/neumorphic_decorations.dart';
@@ -36,7 +36,7 @@ export '../theme/neumorphic_theme.dart';
 ///
 @immutable
 class Neumorphic extends StatelessWidget {
-  static const DEFAULT_DURATION = Duration(milliseconds: 100);
+  static const DEFAULT_DURATION = const Duration(milliseconds: 100);
   static const DEFAULT_CURVE = Curves.linear;
 
   static const double MIN_DEPTH = -20.0;
@@ -59,7 +59,7 @@ class Neumorphic extends StatelessWidget {
   final bool
       drawSurfaceAboveChild; //if true => boxDecoration & foreground decoration, else => boxDecoration does all the work
 
-  const Neumorphic({
+  Neumorphic({
     Key? key,
     this.child,
     this.duration = Neumorphic.DEFAULT_DURATION,
@@ -79,14 +79,14 @@ class Neumorphic extends StatelessWidget {
         .applyDisableDepth();
 
     return _NeumorphicContainer(
-      padding: padding,
-      textStyle: textStyle,
-      drawSurfaceAboveChild: drawSurfaceAboveChild,
-      duration: duration,
+      padding: this.padding,
+      textStyle: this.textStyle,
+      drawSurfaceAboveChild: this.drawSurfaceAboveChild,
+      duration: this.duration,
       style: style,
-      curve: curve,
-      margin: margin,
-      child: child,
+      curve: this.curve,
+      margin: this.margin,
+      child: this.child,
     );
   }
 }
@@ -101,7 +101,7 @@ class _NeumorphicContainer extends StatelessWidget {
   final bool drawSurfaceAboveChild;
   final EdgeInsets padding;
 
-  const _NeumorphicContainer({
+  _NeumorphicContainer({
     Key? key,
     this.child,
     this.textStyle,
@@ -115,33 +115,33 @@ class _NeumorphicContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shape = style.boxShape ?? NeumorphicBoxShape.rect();
+    final shape = this.style.boxShape ?? NeumorphicBoxShape.rect();
 
     return DefaultTextStyle(
-      style: textStyle ?? material.Theme.of(context).textTheme.bodyMedium!,
+      style: this.textStyle ?? material.Theme.of(context).textTheme.bodyMedium!,
       child: AnimatedContainer(
-        margin: margin,
-        duration: duration,
-        curve: curve,
+        margin: this.margin,
+        duration: this.duration,
+        curve: this.curve,
         child: NeumorphicBoxShapeClipper(
           shape: shape,
           child: Padding(
-            padding: padding,
-            child: child,
+            padding: this.padding,
+            child: this.child,
           ),
         ),
         foregroundDecoration: NeumorphicDecoration(
           isForeground: true,
           renderingByPath: shape.customShapePathProvider.oneGradientPerPath,
-          splitBackgroundForeground: drawSurfaceAboveChild,
-          style: style,
+          splitBackgroundForeground: this.drawSurfaceAboveChild,
+          style: this.style,
           shape: shape,
         ),
         decoration: NeumorphicDecoration(
           isForeground: false,
           renderingByPath: shape.customShapePathProvider.oneGradientPerPath,
-          splitBackgroundForeground: drawSurfaceAboveChild,
-          style: style,
+          splitBackgroundForeground: this.drawSurfaceAboveChild,
+          style: this.style,
           shape: shape,
         ),
       ),

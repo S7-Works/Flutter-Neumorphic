@@ -7,8 +7,8 @@ import 'package:example/samples/form_sample.dart';
 import 'package:example/samples/testla_sample.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/samples/galaxy_sample.dart';
-import 'package:example/samples/widgets_sample.dart';
+import 'galaxy_sample.dart';
+import 'widgets_sample.dart';
 
 class SamplesHome extends StatelessWidget {
   const SamplesHome({super.key});

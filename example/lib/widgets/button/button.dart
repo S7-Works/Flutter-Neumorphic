@@ -47,7 +47,7 @@ class __PageState extends State<_Page> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Back"),
+              child: const Text("back"),
             ),
             ElevatedButton(
               onPressed: () {
@@ -57,7 +57,7 @@ class __PageState extends State<_Page> {
                       _useDark ? ThemeMode.dark : ThemeMode.light;
                 });
               },
-              child: const Text("Toggle Theme"),
+              child: const Text("toggle theme"),
             ),
             const SizedBox(height: 34),
             _buildTopBar(context),
@@ -71,7 +71,7 @@ class __PageState extends State<_Page> {
     return Center(
       child: NeumorphicButton(
         onPressed: () {
-          print("click");
+          debugPrint("click");
         },
         style: const NeumorphicStyle(
           shape: NeumorphicShape.flat,

@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:flutter_neumorphic/src/widget/button.dart';
-import 'package:flutter_neumorphic/src/widget/container.dart';
+import 'button.dart';
+import 'container.dart';
 
-typedef NeumorphicRadioListener<T> = void Function(T value);
+typedef void NeumorphicRadioListener<T>(T value);
 
 /// A Style used to customize a [NeumorphicRadio]
 ///
@@ -162,7 +162,7 @@ class NeumorphicRadio<T> extends StatelessWidget {
   final Duration duration;
   final Curve curve;
 
-  const NeumorphicRadio({Key? key, 
+  NeumorphicRadio({
     this.child,
     this.style = const NeumorphicRadioStyle(),
     this.value,
@@ -172,7 +172,7 @@ class NeumorphicRadio<T> extends StatelessWidget {
     this.groupValue,
     this.onChanged,
     this.isEnabled = true,
-  }) : super(key: key);
+  });
 
   bool get isSelected => this.value != null && this.value == this.groupValue;
 

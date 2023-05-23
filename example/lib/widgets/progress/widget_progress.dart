@@ -1,4 +1,4 @@
-import 'package:example/lib/Code.dart';
+import 'package:example/lib/code.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -110,14 +110,13 @@ Expanded(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         _buildWidget(context),
-       TextButton(
-  onPressed: () {
-    setState(() {
-      percent = Random().nextDouble();
-    });
-  },
-  child: const Text('Update'),
-),
+        TextButton(
+            child: const Text('Update'),
+            onPressed: () {
+              setState(() {
+                percent = Random().nextDouble();
+              });
+            }),
         _buildCode(context),
       ],
     );

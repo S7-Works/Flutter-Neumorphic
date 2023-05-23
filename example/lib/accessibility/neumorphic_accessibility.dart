@@ -576,12 +576,12 @@ class __PageState extends State<_Page> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                backgroundColor: shape == NeumorphicShape.flat
-                    ? buttonActiveColor
-                    : buttonInnactiveColor,
-              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+
+              backgroundColor: shape == NeumorphicShape.flat
+                  ? buttonActiveColor
+                  : buttonInnactiveColor,),
               onPressed: () {
                 setState(() {
                   shape = NeumorphicShape.flat;

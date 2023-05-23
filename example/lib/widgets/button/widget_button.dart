@@ -1,5 +1,5 @@
-import 'package:example/lib/Code.dart';
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'package:example/lib/code.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -326,9 +326,9 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
           const SizedBox(width: 12),
-          const NeumorphicButton(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-            child: Text("Second"),
+          NeumorphicButton(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+            child: const Text("Second"),
           ),
         ],
       ),

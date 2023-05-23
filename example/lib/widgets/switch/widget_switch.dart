@@ -1,5 +1,5 @@
-import 'package:example/lib/Code.dart';
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'package:example/lib/code.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -110,15 +110,12 @@ NeumorphicSwitch(
           ),
           const SizedBox(width: 12),
           TextButton(
-            onPressed: () {
-              setState(() {
-                isEnabled = !isEnabled;
-              });
-            },
-            child: Text(
-              isEnabled ? 'Disable' : 'Enable',
-            ),
-          )
+              onPressed: () {
+                setState(() {
+                  isEnabled = !isEnabled;
+                });
+              },
+              child: Text(isEnabled ? 'Disable' : 'Enable'))
         ],
       ),
     );
@@ -181,7 +178,8 @@ NeumorphicSwitch(
               ),
               const SizedBox(width: 12),
               NeumorphicSwitch(
-                style: const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.flat),
+                style: const NeumorphicSwitchStyle(
+                    thumbShape: NeumorphicShape.flat),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
@@ -204,8 +202,8 @@ NeumorphicSwitch(
               ),
               const SizedBox(width: 12),
               NeumorphicSwitch(
-                style:
-                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.concave),
+                style: const NeumorphicSwitchStyle(
+                    thumbShape: NeumorphicShape.concave),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
@@ -228,8 +226,8 @@ NeumorphicSwitch(
               ),
               const SizedBox(width: 12),
               NeumorphicSwitch(
-                style:
-                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.convex),
+                style: const NeumorphicSwitchStyle(
+                    thumbShape: NeumorphicShape.convex),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
@@ -462,8 +460,8 @@ NeumorphicSwitch(
               ),
               const SizedBox(width: 12),
               NeumorphicSwitch(
-                style:
-                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.concave),
+                style: const NeumorphicSwitchStyle(
+                    thumbShape: NeumorphicShape.concave),
                 value: isChecked1,
                 onChanged: (value) {
                   setState(() {
@@ -487,8 +485,8 @@ NeumorphicSwitch(
               const SizedBox(width: 12),
               NeumorphicSwitch(
                 isEnabled: false,
-                style:
-                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.convex),
+                style: const NeumorphicSwitchStyle(
+                    thumbShape: NeumorphicShape.convex),
                 value: isChecked2,
                 onChanged: (value) {
                   setState(() {

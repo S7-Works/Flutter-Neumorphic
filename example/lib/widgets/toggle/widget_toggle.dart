@@ -1,5 +1,5 @@
-import 'package:example/lib/Code.dart';
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'package:example/lib/code.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -170,7 +170,7 @@ Expanded(
               onChanged: (value) {
                 setState(() {
                   _selectedIndex = value;
-                  print("_firstSelected: $_selectedIndex");
+                  debugPrint("_firstSelected: $_selectedIndex");
                 });
               },
             ),
@@ -272,14 +272,15 @@ NeumorphicToggle(
             ),
             onAnimationChangedFinished: (value) {
               if (value == 0) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('on back !')));
-                print("onAnimationChangedFinished: $_selectedIndex");
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(const SnackBar(content: Text('on back !')));
+                debugPrint("onAnimationChangedFinished: $_selectedIndex");
               }
             },
             onChanged: (value) {
               setState(() {
                 _selectedIndex = value;
-                print("_firstSelected: $_selectedIndex");
+                debugPrint("_firstSelected: $_selectedIndex");
               });
             },
           ),

@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_neumorphic/src/neumorphic_box_shape.dart';
-import 'package:flutter_neumorphic/src/theme/theme.dart';
-import 'package:flutter_neumorphic/src/decoration/cache/neumorphic_emboss_painter_cache.dart';
+import '../neumorphic_box_shape.dart';
+import '../theme/theme.dart';
+import 'cache/neumorphic_emboss_painter_cache.dart';
 
 export '../theme/theme.dart';
 
 class NeumorphicEmbossDecorationPainter extends BoxPainter {
-  final NeumorphicEmbossPainterCache _cache;
+  NeumorphicEmbossPainterCache _cache;
 
   final NeumorphicStyle style;
   final NeumorphicBoxShape shape;
@@ -29,20 +29,20 @@ class NeumorphicEmbossDecorationPainter extends BoxPainter {
       required this.drawShadow,
       required VoidCallback onChanged,
       NeumorphicBoxShape? shape})
-      : shape = shape ?? NeumorphicBoxShape.rect(),
+      : this.shape = shape ?? NeumorphicBoxShape.rect(),
         _cache = NeumorphicEmbossPainterCache(),
         super(onChanged) {
     _generatePainters();
   }
 
   void _generatePainters() {
-    _backgroundPaint = Paint();
-    _whiteShadowPaint = Paint();
-    _whiteShadowMaskPaint = Paint()..blendMode = BlendMode.dstOut;
-    _blackShadowPaint = Paint();
-    _blackShadowMaskPaint = Paint()..blendMode = BlendMode.dstOut;
+    this._backgroundPaint = Paint();
+    this._whiteShadowPaint = Paint();
+    this._whiteShadowMaskPaint = Paint()..blendMode = BlendMode.dstOut;
+    this._blackShadowPaint = Paint();
+    this._blackShadowMaskPaint = Paint()..blendMode = BlendMode.dstOut;
 
-    _borderPaint = Paint()
+    this._borderPaint = Paint()
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.bevel
       ..style = PaintingStyle.stroke;
@@ -54,7 +54,8 @@ class NeumorphicEmbossDecorationPainter extends BoxPainter {
       required NeumorphicStyle newStyle}) {
     bool invalidateSize = false;
     if (configuration.size != null) {
-      invalidateSize = _cache
+      invalidateSize = this
+          ._cache
           .updateSize(newOffset: offset, newSize: configuration.size!);
       if (invalidateSize) {
         _cache.updatePath(
@@ -64,26 +65,27 @@ class NeumorphicEmbossDecorationPainter extends BoxPainter {
     }
 
     bool invalidateLightSource = false;
-    invalidateLightSource = _cache
+    invalidateLightSource = this
+        ._cache
         .updateLightSource(style.lightSource, style.oppositeShadowLightSource);
 
     bool invalidateColor = false;
     if (style.color != null) {
-      invalidateColor = _cache.updateStyleColor(style.color!);
+      invalidateColor = this._cache.updateStyleColor(style.color!);
       if (invalidateColor) {
-        _backgroundPaint.color = _cache.backgroundColor;
+        _backgroundPaint..color = _cache.backgroundColor;
       }
     }
     bool invalidateDepth = false;
     if (style.depth != null) {
-      invalidateDepth = _cache.updateStyleDepth(style.depth!, 5);
+      invalidateDepth = this._cache.updateStyleDepth(style.depth!, 5);
       if (invalidateDepth) {
-        _blackShadowMaskPaint.maskFilter = _cache.maskFilterBlur;
-        _whiteShadowMaskPaint.maskFilter = _cache.maskFilterBlur;
+        _blackShadowMaskPaint..maskFilter = _cache.maskFilterBlur;
+        _whiteShadowMaskPaint..maskFilter = _cache.maskFilterBlur;
       }
     }
 
-    final bool invalidateShadowColors = _cache.updateShadowColor(
+    final bool invalidateShadowColors = this._cache.updateShadowColor(
           newShadowLightColorEmboss:
               style.shadowLightColorEmboss ?? Color(0xFFFFFFFF),
           newShadowDarkColorEmboss:
@@ -92,10 +94,10 @@ class NeumorphicEmbossDecorationPainter extends BoxPainter {
         );
     if (invalidateShadowColors) {
       if (_cache.shadowLightColor != null) {
-        _whiteShadowPaint.color = _cache.shadowLightColor!;
+        _whiteShadowPaint..color = _cache.shadowLightColor!;
       }
       if (_cache.shadowDarkColor != null) {
-        _blackShadowPaint.color = _cache.shadowDarkColor!;
+        _blackShadowPaint..color = _cache.shadowDarkColor!;
       }
     }
 
@@ -153,7 +155,7 @@ class NeumorphicEmbossDecorationPainter extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     _updateCache(
-        offset: offset, configuration: configuration, newStyle: style);
+        offset: offset, configuration: configuration, newStyle: this.style);
     for (var subPath in _cache.subPaths) {
       if (drawBackground) {
         _paintBackground(canvas, subPath);

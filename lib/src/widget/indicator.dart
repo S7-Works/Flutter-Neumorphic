@@ -1,6 +1,7 @@
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/widgets.dart';
 
+import 'container.dart';
 
 /// A Style to customize the [NeumorphicIndicator]
 ///

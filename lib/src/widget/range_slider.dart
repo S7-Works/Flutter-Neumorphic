@@ -1,8 +1,8 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 
-typedef NeumorphicRangeSliderLowListener = void Function(double percent);
-typedef NeumorphicRangeSliderHighListener = void Function(double percent);
+typedef void NeumorphicRangeSliderLowListener(double percent);
+typedef void NeumorphicRangeSliderHighListener(double percent);
 
 /// A style to customize the [NeumorphicSlider]
 ///
@@ -121,7 +121,8 @@ class NeumorphicRangeSlider extends StatefulWidget {
   final Function(ActiveThumb)? onPanEnded;
   final Widget? thumb;
 
-  const NeumorphicRangeSlider({Key? key, 
+  NeumorphicRangeSlider({
+    Key? key,
     this.style = const RangeSliderStyle(),
     this.min = 0,
     this.max = 10,
@@ -134,7 +135,7 @@ class NeumorphicRangeSlider extends StatefulWidget {
     this.onPanEnded,
     this.sliderHeight,
     this.thumb,
-  }) : super(key: key);
+  });
 
   double get percentLow => (((valueLow.clamp(min, max)) - min) / ((max - min)));
 
@@ -159,7 +160,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
   Widget _widget(BuildContext context, BoxConstraints constraints) {
     double thumbSize = widget.height * 1.5;
 
-    panUpdate(DragUpdateDetails details) {
+    Function panUpdate = (DragUpdateDetails details) {
       final tapPos = details.localPosition;
       final newPercent = tapPos.dx / constraints.maxWidth;
       final newValue = ((widget.min + (widget.max - widget.min) * newPercent))
@@ -189,7 +190,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
           }
           break;
       }
-    }
+    };
 
     return Stack(
       alignment: Alignment.center,
@@ -265,11 +266,11 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
             accent: widget.style.accent ?? theme.accentColor,
             variant: widget.style.variant ?? theme.variantColor,
           )),
-      Positioned.fill(
-        child: LayoutBuilder(
+      new Positioned.fill(
+        child: new LayoutBuilder(
           builder: (context, constraints) {
-            return Padding(
-              padding: EdgeInsets.only(
+            return new Padding(
+              padding: new EdgeInsets.only(
                   left: constraints.biggest.width * widget.percentLow,
                   right: constraints.biggest.width * (1 - widget.percentHigh)),
               child: Container(

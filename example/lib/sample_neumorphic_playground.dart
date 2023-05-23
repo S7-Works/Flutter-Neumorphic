@@ -6,7 +6,7 @@ class NeumorphicPlayground extends StatefulWidget {
   const NeumorphicPlayground({super.key});
 
   @override
-  _NeumorphicPlaygroundState createState() => _NeumorphicPlaygroundState();
+  State<NeumorphicPlayground> createState() => _NeumorphicPlaygroundState();
 }
 
 class _NeumorphicPlaygroundState extends State<NeumorphicPlayground> {
@@ -17,7 +17,7 @@ class _NeumorphicPlaygroundState extends State<NeumorphicPlayground> {
       themeMode: ThemeMode.light,
       theme: const NeumorphicThemeData(
         baseColor: Color(0xffDDDDDD),
-        // lightSource: LightSource.topLeft,
+        lightSource: LightSource.topLeft,
         depth: 6,
         intensity: 0.5,
       ),
@@ -138,10 +138,7 @@ class __PageState extends State<_Page> {
         width: width,
         child: haveNeumorphicChild
             ? neumorphicChild()
-            : Container(
-                //color: Colors.blue,
-                child: const Center(child: Text("")),
-              ),
+            : const Center(child: Text("")),
       ),
     );
   }
@@ -257,8 +254,8 @@ class __PageState extends State<_Page> {
       children: <Widget>[
         Expanded(
           child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
+            padding: const EdgeInsets.all(8.0),
+            child:ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -278,12 +275,13 @@ class __PageState extends State<_Page> {
                       ? iconActiveColor
                       : iconInactiveColor,
                 ),
-              )),
+              ),
+          ),
         ),
         Expanded(
           child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -303,12 +301,13 @@ class __PageState extends State<_Page> {
                       ? iconActiveColor
                       : iconInactiveColor,
                 ),
-              )),
+              ),
+          ),
         ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
+            child:ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -329,23 +328,6 @@ class __PageState extends State<_Page> {
                     : iconInactiveColor,
               ),
             ),
-
-            // RaisedButton(
-            //   shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(12)),
-            //   onPressed: () {
-            //     setState(() {
-            //       shape = NeumorphicShape.flat;
-            //     });
-            //   },
-            //   color: shape == NeumorphicShape.flat
-            //       ? buttonActiveColor
-            //       : buttonInnactiveColor,
-            //   child: Image.asset("assets/images/flat.png",
-            //       color: shape == NeumorphicShape.flat
-            //           ? iconActiveColor
-            //           : iconInactiveColor),
-            // ),
           ),
         ),
       ],

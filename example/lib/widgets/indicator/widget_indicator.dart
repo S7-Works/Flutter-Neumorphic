@@ -1,10 +1,10 @@
-import 'package:example/lib/Code.dart';
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'dart:math' show Random;
+
+import 'package:example/lib/code.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-
-import 'dart:math' show Random;
 
 class IndicatorWidgetPage extends StatefulWidget {
   const IndicatorWidgetPage({Key? key}) : super(key: key);

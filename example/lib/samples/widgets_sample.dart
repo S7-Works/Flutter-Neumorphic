@@ -188,7 +188,7 @@ class _ContainersListPageState extends State<WidgetsSample> {
           value: check1,
           onChanged: (value) {
             setState(() {
-              check1 = value;
+              check1 = value!;
             });
           },
         ),
@@ -197,7 +197,7 @@ class _ContainersListPageState extends State<WidgetsSample> {
           value: check2,
           onChanged: (value) {
             setState(() {
-              check2 = value;
+              check2 = value!;
             });
           },
         ),
@@ -206,7 +206,7 @@ class _ContainersListPageState extends State<WidgetsSample> {
           value: check3,
           onChanged: (value) {
             setState(() {
-              check3 = value;
+              check3 = value!;
             });
           },
         ),

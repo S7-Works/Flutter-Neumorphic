@@ -1,4 +1,4 @@
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -30,6 +30,7 @@ class _Page extends StatefulWidget {
   __PageState createState() => __PageState();
 }
 
+// ignore: constant_identifier_names
 enum Gender { MALE, FEMALE, NON_BINARY }
 
 class __PageState extends State<_Page> {
@@ -229,9 +230,9 @@ class _TextField extends StatefulWidget {
   final String label;
   final String hint;
 
-  final ValueChanged<String> onChanged;
+  final ValueChanged<String>? onChanged;
 
-  const _TextField({required this.label, required this.hint, required this.onChanged});
+  const _TextField({required this.label, required this.hint, this.onChanged});
 
   @override
   __TextFieldState createState() => __TextFieldState();

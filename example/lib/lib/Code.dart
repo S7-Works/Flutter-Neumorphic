@@ -24,7 +24,7 @@ class MyIntWidget extends StatefulWidget {
   const MyIntWidget({super.key, required this.value});
 
   @override
-  _MyIntWidgetState createState() => _MyIntWidgetState();
+  State<MyIntWidget> createState() => _MyIntWidgetState();
 }
 
 class _MyIntWidgetState extends State<MyIntWidget>

@@ -2,10 +2,10 @@ import 'package:example/tips/tips_home.dart';
 import 'package:example/widgets/widgets_home.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/accessibility/neumorphic_accessibility.dart';
-import 'package:example/playground/neumorphic_playground.dart';
-import 'package:example/playground/text_playground.dart';
-import 'package:example/samples/sample_home.dart';
+import 'accessibility/neumorphic_accessibility.dart';
+import 'playground/neumorphic_playground.dart';
+import 'playground/text_playground.dart';
+import 'samples/sample_home.dart';
 
 void main() => runApp(const MyApp());
 

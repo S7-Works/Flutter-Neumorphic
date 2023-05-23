@@ -1,4 +1,4 @@
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -53,13 +53,13 @@ class _PageState extends State<_Page> {
       style: NeumorphicStyle(
         boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
       ),
-      child: const Neumorphic(
-        style: NeumorphicStyle(
+      child: Neumorphic(
+        style: const NeumorphicStyle(
           depth: -1,
           oppositeShadowLightSource: true,
         ),
-        padding: EdgeInsets.all(2),
-        child: SizedBox(
+        padding: const EdgeInsets.all(2),
+        child: const SizedBox(
           width: 40,
           height: 60,
         ),
@@ -77,13 +77,13 @@ class _PageState extends State<_Page> {
             lightSource: LightSource.topLeft,
             boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
           ),
-          child: const Neumorphic(
-            style: NeumorphicStyle(
+          child: Neumorphic(
+            style: const NeumorphicStyle(
               depth: -1,
               oppositeShadowLightSource: true,
               lightSource: LightSource.topLeft,
             ),
-            child: SizedBox(
+            child: const SizedBox(
               width: 50,
               height: 50,
             ),

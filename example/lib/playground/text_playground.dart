@@ -5,7 +5,7 @@ class NeumorphicTextPlayground extends StatefulWidget {
   const NeumorphicTextPlayground({super.key});
 
   @override
-  _NeumorphicPlaygroundState createState() => _NeumorphicPlaygroundState();
+  State<NeumorphicTextPlayground> createState() => _NeumorphicPlaygroundState();
 }
 
 class _NeumorphicPlaygroundState extends State<NeumorphicTextPlayground> {
@@ -93,17 +93,16 @@ class __PageState extends State<_Page> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                          borderRadius: BorderRadius.circular(12)),
                       backgroundColor: Theme.of(context).colorScheme.secondary,
+                    ),
+                    child: const Text(
+                      "back",
+                      style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text(
-                      "Back",
-                      style: TextStyle(color: Colors.white),
-                    ),
                   ),
                 ),
                 Flexible(
@@ -148,80 +147,58 @@ class __PageState extends State<_Page> {
               Expanded(
                 flex: 1,
                 child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        backgroundColor: selectedConfiguratorIndex == 0
-                            ? buttonActiveColor
-                            : buttonInnactiveColor,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          selectedConfiguratorIndex = 0;
-                        });
-                      },
-                      child: Text(
-                        "Style",
-                        style: TextStyle(
-                          color: selectedConfiguratorIndex == 0
-                              ? textActiveColor
-                              : textInactiveColor,
-                        ),
-                      ),
-                    )
-
-                    // RaisedButton(
-                    //   shape: RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(12)),
-                    //   color: selectedConfiguratorIndex == 0
-                    //       ? buttonActiveColor
-                    //       : buttonInnactiveColor,
-                    //   child: Text(
-                    //     "Style",
-                    //     style: TextStyle(
-                    //       color: selectedConfiguratorIndex == 0
-                    //           ? textActiveColor
-                    //           : textInactiveColor,
-                    //     ),
-                    //   ),
-                    //   onPressed: () {
-                    //     setState(() {
-                    //       selectedConfiguratorIndex = 0;
-                    //     });
-                    //   },
-                    // ),
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      backgroundColor: selectedConfiguratorIndex == 0
+                          ? buttonActiveColor
+                          : buttonInnactiveColor,
                     ),
+                    child: Text(
+                      "Style",
+                      style: TextStyle(
+                        color: selectedConfiguratorIndex == 0
+                            ? textActiveColor
+                            : textInactiveColor,
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        selectedConfiguratorIndex = 0;
+                      });
+                    },
+                  ),
+                ),
               ),
               Expanded(
                 flex: 1,
                 child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        backgroundColor: selectedConfiguratorIndex == 1
-                            ? buttonActiveColor
-                            : buttonInnactiveColor,
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      backgroundColor: selectedConfiguratorIndex == 1
+                          ? buttonActiveColor
+                          : buttonInnactiveColor,
+                    ),
+                    child: Text(
+                      "Element",
+                      style: TextStyle(
+                        color: selectedConfiguratorIndex == 1
+                            ? textActiveColor
+                            : textInactiveColor,
                       ),
-                      onPressed: () {
-                        setState(() {
-                          selectedConfiguratorIndex = 1;
-                        });
-                      },
-                      child: Text(
-                        "Element",
-                        style: TextStyle(
-                          color: selectedConfiguratorIndex == 1
-                              ? textActiveColor
-                              : textInactiveColor,
-                        ),
-                      ),
-                    )),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        selectedConfiguratorIndex = 1;
+                      });
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -281,8 +258,7 @@ class __PageState extends State<_Page> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                    borderRadius: BorderRadius.circular(12)),
                 backgroundColor: shape == NeumorphicShape.concave
                     ? buttonActiveColor
                     : buttonInnactiveColor,
@@ -305,8 +281,7 @@ class __PageState extends State<_Page> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                    borderRadius: BorderRadius.circular(12)),
                 backgroundColor: shape == NeumorphicShape.convex
                     ? buttonActiveColor
                     : buttonInnactiveColor,
@@ -329,8 +304,7 @@ class __PageState extends State<_Page> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                    borderRadius: BorderRadius.circular(12)),
                 backgroundColor: shape == NeumorphicShape.flat
                     ? buttonActiveColor
                     : buttonInnactiveColor,

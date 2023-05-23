@@ -1,5 +1,5 @@
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import '../../flutter_neumorphic.dart';
 
 export '../decoration/neumorphic_decorations.dart';
 export '../neumorphic_box_shape.dart';
@@ -13,7 +13,7 @@ class NeumorphicIcon extends StatelessWidget {
   final double size;
   final Duration duration;
 
-  const NeumorphicIcon(
+  NeumorphicIcon(
     this.icon, {
     Key? key,
     this.duration = Neumorphic.DEFAULT_DURATION,
@@ -31,9 +31,9 @@ class NeumorphicIcon extends StatelessWidget {
         fontFamily: icon.fontFamily,
         package: icon.fontPackage,
       ),
-      duration: duration,
+      duration: this.duration,
       style: style,
-      curve: curve,
+      curve: this.curve,
     );
   }
 }

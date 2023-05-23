@@ -1,5 +1,5 @@
-import 'package:example/lib/Code.dart';
-import 'package:example/lib/ThemeConfigurator.dart';
+import 'package:example/lib/code.dart';
+import 'package:example/lib/theme_configurator.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -94,8 +94,8 @@ Neumorphic(
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
           const SizedBox(width: 12),
-          const Neumorphic(
-            child: SizedBox(
+          Neumorphic(
+            child: const SizedBox(
               height: 100,
               width: 100,
             ),
@@ -144,12 +144,12 @@ Neumorphic(
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
           const SizedBox(width: 12),
-          const Neumorphic(
-            style: NeumorphicStyle(
+          Neumorphic(
+            style: const NeumorphicStyle(
               boxShape: NeumorphicBoxShape.circle(),
             ),
-            padding: EdgeInsets.all(18.0),
-            child: Icon(Icons.map),
+            padding: const EdgeInsets.all(18.0),
+            child: const Icon(Icons.map),
           ),
           const SizedBox(width: 12),
         ],
@@ -266,7 +266,8 @@ Neumorphic(
           const SizedBox(width: 12),
           Neumorphic(
             style: NeumorphicStyle(
-                color: currentColor, boxShape: const NeumorphicBoxShape.circle()),
+                color: currentColor,
+                boxShape: const NeumorphicBoxShape.circle()),
             child: const SizedBox(
               height: 100,
               width: 100,
@@ -327,13 +328,13 @@ Neumorphic(
                 ),
               ),
               const SizedBox(width: 12),
-              const Neumorphic(
-                style: NeumorphicStyle(
+              Neumorphic(
+                style: const NeumorphicStyle(
                   shape: NeumorphicShape.flat,
                   boxShape: NeumorphicBoxShape.circle(),
                 ),
-                padding: EdgeInsets.all(18.0),
-                child: Icon(Icons.play_arrow),
+                padding: const EdgeInsets.all(18.0),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),
@@ -349,13 +350,13 @@ Neumorphic(
                 ),
               ),
               const SizedBox(width: 12),
-              const Neumorphic(
-                style: NeumorphicStyle(
+              Neumorphic(
+                style: const NeumorphicStyle(
                   shape: NeumorphicShape.concave,
                   boxShape: NeumorphicBoxShape.circle(),
                 ),
-                padding: EdgeInsets.all(18.0),
-                child: Icon(Icons.play_arrow),
+                padding: const EdgeInsets.all(18.0),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),
@@ -371,12 +372,12 @@ Neumorphic(
                 ),
               ),
               const SizedBox(width: 12),
-              const NeumorphicButton(
-                style: NeumorphicStyle(
+              NeumorphicButton(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     boxShape: NeumorphicBoxShape.circle()),
-                padding: EdgeInsets.all(18.0),
-                child: Icon(Icons.play_arrow),
+                padding: const EdgeInsets.all(18.0),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),
@@ -428,21 +429,21 @@ Neumorphic(
                     TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
               ),
               const SizedBox(width: 12),
-              const Neumorphic(
-                padding: EdgeInsets.all(18),
-                style: NeumorphicStyle(
+              Neumorphic(
+                padding: const EdgeInsets.all(18),
+                style: const NeumorphicStyle(
                   depth: -10.0,
                 ),
-                child: Icon(Icons.play_arrow),
+                child: const Icon(Icons.play_arrow),
               ),
               const SizedBox(width: 12),
-              const Neumorphic(
-                padding: EdgeInsets.all(18),
-                style: NeumorphicStyle(
+              Neumorphic(
+                padding: const EdgeInsets.all(18),
+                style: const NeumorphicStyle(
                   boxShape: NeumorphicBoxShape.circle(),
                   depth: -10.0,
                 ),
-                child: Icon(Icons.play_arrow),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),

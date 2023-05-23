@@ -3,18 +3,18 @@ import 'package:example/widgets/appbar/widget_app_bar.dart';
 import 'package:example/widgets/toggle/widget_toggle.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/widgets/background/widget_background.dart';
-import 'package:example/widgets/button/widget_button.dart';
-import 'package:example/widgets/checkbox/widget_checkbox.dart';
-import 'package:example/widgets/container/widget_container.dart';
-import 'package:example/widgets/icon/widget_icon.dart';
-import 'package:example/widgets/indeterminate_progress/widget_indeterminate_progress.dart';
-import 'package:example/widgets/indicator/widget_indicator.dart';
-import 'package:example/widgets/progress/widget_progress.dart';
-import 'package:example/widgets/radiobutton/widget_radio_button.dart';
-import 'package:example/widgets/range_slider/widget_range_slider.dart';
-import 'package:example/widgets/slider/widget_slider.dart';
-import 'package:example/widgets/switch/widget_switch.dart';
+import 'background/widget_background.dart';
+import 'button/widget_button.dart';
+import 'checkbox/widget_checkbox.dart';
+import 'container/widget_container.dart';
+import 'icon/widget_icon.dart';
+import 'indeterminate_progress/widget_indeterminate_progress.dart';
+import 'indicator/widget_indicator.dart';
+import 'progress/widget_progress.dart';
+import 'radiobutton/widget_radio_button.dart';
+import 'range_slider/widget_range_slider.dart';
+import 'slider/widget_slider.dart';
+import 'switch/widget_switch.dart';
 
 class WidgetsHome extends StatelessWidget {
   const WidgetsHome({super.key});
@@ -52,7 +52,7 @@ class WidgetsHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  const TopBar(title: "Widgets"),
+                  const TopBar(title: "Widgets", actions: [],),
                   _buildButton(
                       text: "Container",
                       onClick: () {
@@ -66,7 +66,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return const AppBarWidgetPage();
+                          return  const AppBarWidgetPage();
                         }));
                       }),
                   _buildButton(

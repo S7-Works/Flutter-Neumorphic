@@ -1,6 +1,6 @@
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_neumorphic/src/decoration/cache/abstract_neumorphic_painter_cache.dart';
+import '../../../flutter_neumorphic.dart';
+import 'abstract_neumorphic_painter_cache.dart';
 
 class NeumorphicEmbossPainterCache
     extends AbstractNeumorphicEmbossPainterCache {
@@ -22,7 +22,6 @@ class NeumorphicEmbossPainterCache
     );
   }
 
-  @override
   Rect updateLayerRect({required Offset newOffset, required Size newSize}) {
     return newOffset & newSize;
   }
@@ -46,21 +45,21 @@ class NeumorphicEmbossPainterCache
   //call after _cacheWidth & _cacheHeight set
   @override
   void updateTranslations() {
-    xDepth = lightSource.dx * depth;
-    yDepth = lightSource.dy * depth;
-    xPadding = 2 * (1 - lightSource.dx.abs()) * depth;
-    yPadding = 2 * (1 - lightSource.dy.abs()) * depth;
+    this.xDepth = this.lightSource.dx * this.depth;
+    this.yDepth = this.lightSource.dy * this.depth;
+    this.xPadding = 2 * (1 - this.lightSource.dx.abs()) * this.depth;
+    this.yPadding = 2 * (1 - this.lightSource.dy.abs()) * this.depth;
 
-    witheShadowLeftTranslation = xDepth - xPadding;
-    witheShadowTopTranslation = yDepth - yPadding;
+    this.witheShadowLeftTranslation = xDepth - xPadding;
+    this.witheShadowTopTranslation = yDepth - yPadding;
 
-    blackShadowLeftTranslation = -(xDepth + xPadding);
-    blackShadowTopTranslation = -(yDepth + yPadding);
+    this.blackShadowLeftTranslation = -(xDepth + xPadding);
+    this.blackShadowTopTranslation = -(yDepth + yPadding);
 
-    scaledWidth = width + 2 * xPadding;
-    scaledHeight = height + 2 * yPadding;
+    this.scaledWidth = this.width + 2 * xPadding;
+    this.scaledHeight = this.height + 2 * yPadding;
 
-    scaleX = scaledWidth / width;
-    scaleY = scaledHeight / height;
+    this.scaleX = this.scaledWidth / this.width;
+    this.scaleY = this.scaledHeight / this.height;
   }
 }

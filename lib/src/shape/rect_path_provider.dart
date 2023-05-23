@@ -1,4 +1,4 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import '../../flutter_neumorphic.dart';
 
 class RectPathProvider extends NeumorphicPathProvider {
   const RectPathProvider({Listenable? reclip});

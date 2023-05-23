@@ -1,13 +1,13 @@
 import 'package:example/lib/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'package:example/tips/border/tips_border.dart';
-import 'package:example/tips/border/tips_emboss_inside_emboss.dart';
+import 'border/tips_border.dart';
+import 'border/tips_emboss_inside_emboss.dart';
 
 class TipsHome extends StatelessWidget {
   const TipsHome({super.key});
 
-  Widget _buildButton({required String text, required VoidCallback onClick}) {
+  Widget _buildButton({String? text, VoidCallback? onClick}) {
     return NeumorphicButton(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(
@@ -21,7 +21,7 @@ class TipsHome extends StatelessWidget {
         ),
       ),
       onPressed: onClick,
-      child: Center(child: Text(text)),
+      child: Center(child: Text(text!)),
     );
   }
 

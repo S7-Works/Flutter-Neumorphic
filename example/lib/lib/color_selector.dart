@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
@@ -10,7 +9,11 @@ class ColorSelector extends StatelessWidget {
   final double width;
 
   const ColorSelector(
-      {super.key, this.height = 40, this.width = 40, required this.color, required this.onColorChanged});
+      {super.key,
+      this.height = 40,
+      this.width = 40,
+      required this.color,
+      required this.onColorChanged});
 
   @override
   Widget build(BuildContext context) {

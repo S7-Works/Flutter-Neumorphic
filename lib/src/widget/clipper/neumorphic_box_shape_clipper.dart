@@ -1,11 +1,12 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/widgets.dart';
 
+import '../../neumorphic_box_shape.dart';
 
 class NeumorphicBoxShapeClipper extends StatelessWidget {
   final NeumorphicBoxShape shape;
   final Widget? child;
 
-  const NeumorphicBoxShapeClipper({Key? key, required this.shape, this.child}) : super(key: key);
+  NeumorphicBoxShapeClipper({required this.shape, this.child});
 
   CustomClipper<Path>? _getClipper(NeumorphicBoxShape shape) {
     return shape.customShapePathProvider;
@@ -14,7 +15,7 @@ class NeumorphicBoxShapeClipper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: _getClipper(shape),
+      clipper: _getClipper(this.shape),
       child: child,
     );
   }

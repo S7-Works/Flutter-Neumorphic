@@ -1,4 +1,3 @@
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class AppBarWidgetPage extends StatelessWidget {
@@ -21,9 +20,9 @@ class AppBarWidgetPage extends StatelessWidget {
 class _FirstThemeWidgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const NeumorphicTheme(
+    return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         appBarTheme: NeumorphicAppBarThemeData(
@@ -34,7 +33,7 @@ class _FirstThemeWidgetPage extends StatelessWidget {
         depth: 4,
         intensity: 0.9,
       ),
-      child: AppBarPageUsingTheme(),
+      child: const AppBarPageUsingTheme(),
     );
   }
 }
@@ -171,8 +170,9 @@ class _MyDrawer extends StatelessWidget {
                   height: NeumorphicAppBar.toolbarHeight),
               child: NeumorphicAppBar(
                 title: const Text('Menu'),
-                leading:
-                    isLead ? const NeumorphicBackButton() : const NeumorphicCloseButton(),
+                leading: isLead
+                    ? const NeumorphicBackButton()
+                    : const NeumorphicCloseButton(),
                 actions: <Widget>[
                   NeumorphicButton(
                     child: const Icon(Icons.style),

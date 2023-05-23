@@ -3,7 +3,7 @@ import 'dart:ui' as ui show FontFeature;
 import 'package:flutter/material.dart' as material;
 import 'package:flutter_neumorphic/src/decoration/neumorphic_text_decorations.dart';
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import '../../flutter_neumorphic.dart';
 
 export '../decoration/neumorphic_decorations.dart';
 export '../neumorphic_box_shape.dart';
@@ -150,7 +150,7 @@ class NeumorphicText extends StatelessWidget {
   final Curve curve;
   final Duration duration;
 
-  const NeumorphicText(
+  NeumorphicText(
     this.text, {
     Key? key,
     this.duration = Neumorphic.DEFAULT_DURATION,
@@ -168,12 +168,12 @@ class NeumorphicText extends StatelessWidget {
         .applyDisableDepth();
 
     return _NeumorphicText(
-      textStyle: (textStyle ?? NeumorphicTextStyle()).textStyle,
-      textAlign: textAlign,
-      text: text,
-      duration: duration,
+      textStyle: (this.textStyle ?? NeumorphicTextStyle()).textStyle,
+      textAlign: this.textAlign,
+      text: this.text,
+      duration: this.duration,
       style: style,
-      curve: curve,
+      curve: this.curve,
     );
   }
 }
@@ -188,7 +188,7 @@ class _NeumorphicText extends material.StatefulWidget {
 
   final TextAlign textAlign;
 
-  const _NeumorphicText({
+  _NeumorphicText({
     Key? key,
     required this.duration,
     required this.curve,
@@ -206,11 +206,11 @@ class __NeumorphicTextState extends material.State<_NeumorphicText> {
   @override
   Widget build(BuildContext context) {
     final TextPainter _textPainter = TextPainter(
-        textDirection: TextDirection.ltr, textAlign: widget.textAlign);
-    final textStyle = widget.textStyle;
+        textDirection: TextDirection.ltr, textAlign: this.widget.textAlign);
+    final textStyle = this.widget.textStyle;
     _textPainter.text = TextSpan(
-      text: widget.text,
-      style: widget.textStyle,
+      text: this.widget.text,
+      style: this.widget.textStyle,
     );
 
     return LayoutBuilder(builder: (context, constraints) {
@@ -221,15 +221,15 @@ class __NeumorphicTextState extends material.State<_NeumorphicText> {
       return DefaultTextStyle(
         style: textStyle,
         child: AnimatedContainer(
-          duration: widget.duration,
-          curve: widget.curve,
+          duration: this.widget.duration,
+          curve: this.widget.curve,
           foregroundDecoration: NeumorphicTextDecoration(
             isForeground: true,
             textStyle: textStyle,
             textAlign: widget.textAlign,
             renderingByPath: true,
-            style: widget.style,
-            text: widget.text,
+            style: this.widget.style,
+            text: this.widget.text,
           ),
           child: SizedBox(
             width: width,
