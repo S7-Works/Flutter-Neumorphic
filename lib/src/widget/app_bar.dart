@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_neumorphic/src/widget/back_button.dart';
 
 class NeumorphicAppBar extends StatefulWidget implements PreferredSizeWidget {
   static const toolbarHeight = kToolbarHeight + 16 * 2;
@@ -103,8 +100,9 @@ class NeumorphicAppBar extends StatefulWidget implements PreferredSizeWidget {
   NeumorphicAppBarState createState() => NeumorphicAppBarState();
 
   bool _getEffectiveCenterTitle(ThemeData theme, NeumorphicThemeData nTheme) {
-    if (centerTitle != null || nTheme.appBarTheme.centerTitle != null)
+    if (centerTitle != null || nTheme.appBarTheme.centerTitle != null) {
       return centerTitle ?? nTheme.appBarTheme.centerTitle!;
+    }
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -119,9 +117,10 @@ class NeumorphicAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class NeumorphicAppBarTheme extends InheritedWidget {
+  @override
   final Widget child;
 
-  NeumorphicAppBarTheme({required this.child}) : super(child: child);
+  const NeumorphicAppBarTheme({Key? key, required this.child}) : super(key: key, child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) {
@@ -157,7 +156,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
         );
       } else {
-        if (canPop)
+        if (canPop) {
           leading = useCloseButton
               ? NeumorphicCloseButton(
                   padding: widget.buttonPadding,
@@ -167,6 +166,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
                   padding: widget.buttonPadding,
                   style: widget.buttonStyle,
                 );
+        }
       }
     }
     if (leading != null) {
@@ -180,8 +180,8 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
     if (title != null) {
       final AppBarTheme appBarTheme = AppBarTheme.of(context);
       title = DefaultTextStyle(
-        style: (appBarTheme.textTheme?.headline5 ??
-                Theme.of(context).textTheme.headline5!)
+        style: (appBarTheme.titleTextStyle ??
+                Theme.of(context).textTheme.titleMedium!)
             .merge(widget.textStyle ?? nTheme?.current?.appBarTheme.textStyle),
         softWrap: false,
         overflow: TextOverflow.ellipsis,

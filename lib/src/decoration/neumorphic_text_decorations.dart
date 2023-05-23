@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/widgets.dart';
 
-import 'neumorphic_emboss_decoration_painter.dart';
-import 'neumorphic_text_decoration_painter.dart';
+import 'package:flutter_neumorphic/src/decoration/neumorphic_emboss_decoration_painter.dart';
+import 'package:flutter_neumorphic/src/decoration/neumorphic_text_decoration_painter.dart';
 
 @immutable
 class NeumorphicTextDecoration extends Decoration {
@@ -14,7 +14,7 @@ class NeumorphicTextDecoration extends Decoration {
   final bool isForeground;
   final TextAlign textAlign;
 
-  NeumorphicTextDecoration({
+  const NeumorphicTextDecoration({
     required this.style,
     required this.textStyle,
     required this.isForeground,
@@ -36,7 +36,7 @@ class NeumorphicTextDecoration extends Decoration {
         //only box draw background
         drawShadow: !isForeground,
         //only box draw shadow
-        renderingByPath: this.renderingByPath,
+        renderingByPath: renderingByPath,
         onChanged: onChanged ?? () {},
         text: text,
       );
@@ -59,25 +59,27 @@ class NeumorphicTextDecoration extends Decoration {
   @override
   NeumorphicTextDecoration? lerpFrom(Decoration? a, double t) {
     if (a == null) return scale(t);
-    if (a is NeumorphicTextDecoration)
+    if (a is NeumorphicTextDecoration) {
       return NeumorphicTextDecoration.lerp(a, this, t);
+    }
     return super.lerpFrom(a, t) as NeumorphicTextDecoration;
   }
 
   @override
   NeumorphicTextDecoration? lerpTo(Decoration? b, double t) {
     if (b == null) return scale(1.0 - t);
-    if (b is NeumorphicTextDecoration)
+    if (b is NeumorphicTextDecoration) {
       return NeumorphicTextDecoration.lerp(this, b, t);
+    }
     return super.lerpTo(b, t) as NeumorphicTextDecoration;
   }
 
   NeumorphicTextDecoration scale(double factor) {
-    print("scale");
+    debugPrint("scale");
     return NeumorphicTextDecoration(
-        textAlign: this.textAlign,
-        isForeground: this.isForeground,
-        renderingByPath: this.renderingByPath,
+        textAlign: textAlign,
+        isForeground: isForeground,
+        renderingByPath: renderingByPath,
         text: text,
         textStyle: textStyle,
         style: style.copyWith());

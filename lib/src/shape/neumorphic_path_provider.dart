@@ -1,4 +1,4 @@
-import '../../flutter_neumorphic.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 abstract class NeumorphicPathProvider extends CustomClipper<Path> {
   const NeumorphicPathProvider({Listenable? reclip}) : super(reclip: reclip);

@@ -1,4 +1,5 @@
-import '../../flutter_neumorphic.dart';
+
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 const BoxConstraints _kSizeConstraints = BoxConstraints.tightFor(
   width: 56.0,
@@ -29,14 +30,14 @@ class NeumorphicFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: this.mini ? _kMiniSizeConstraints : _kSizeConstraints,
+      constraints: mini ? _kMiniSizeConstraints : _kSizeConstraints,
       child: NeumorphicButton(
         padding: EdgeInsets.all(0),
-        onPressed: this.onPressed,
-        tooltip: this.tooltip,
-        style: this.style ??
+        onPressed: onPressed,
+        tooltip: tooltip,
+        style: style ??
             NeumorphicTheme.currentTheme(context).appBarTheme.buttonStyle,
-        child: this.child,
+        child: child,
       ),
     );
   }
